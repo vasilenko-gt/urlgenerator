@@ -1,6 +1,6 @@
 class UrlsController < ApplicationController
 
-  before_action :find_url, only: [:show]
+  before_action :find_url, only: [:show, :short]
 
   def index
     @url = Url.new
@@ -18,7 +18,7 @@ class UrlsController < ApplicationController
     if @url.new_url?
 
       if @url.save
-        redirect_to shortened_path(@url.short_url)
+        redirect_to short_path(@url.short_url)
       else
         flash[:error] = "Check the error below:"
         render 'index'
@@ -26,7 +26,7 @@ class UrlsController < ApplicationController
 
     else
       flash[:notice] = "A short link for this URL is already in our database"
-      redirect_to shortened_path(@url.find_duplicate.short_url)
+      redirect_to short_path(@url.find_duplicate.short_url)
     end
 
   end

@@ -1,4 +1,4 @@
-$('.urls.shortened').ready ->
+$('.urls.short').ready ->
   $('#short-url').popover 'show'
   $('body').click ->
     $('#short-url').popover 'hide'
