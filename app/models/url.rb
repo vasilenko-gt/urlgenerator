@@ -2,6 +2,8 @@ class Url < ApplicationRecord
 
   before_create :generate_short_url
 
+  belongs_to :user
+
   validates :original_url, presence: true, on: :create
 
   validates_format_of :original_url, with: /\A(?:(?:http|https):\/\/)?([-a-zA-Z0-9.]{2,256}\.[a-z]{2,4})\b(?:\/[-a-zA-Z0-9@,!:%_\+.~#?&\/\/=]*)?\z/

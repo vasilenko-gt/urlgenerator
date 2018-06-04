@@ -1,4 +1,6 @@
 = simple_form_for url, html: {class: 'text-center'} do |f|
   = f.input :original_url, as: :string, placeholder: 'Enter the URL', input_html: {class: 'form-control'}
+  .d-none
+    = f.input :user_id, as: :string, input_html: {value: current_user.id}
   %br
   = f.submit 'Generate', class: 'btn btn-success'
