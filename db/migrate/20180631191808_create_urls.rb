@@ -5,6 +5,7 @@ class CreateUrls < ActiveRecord::Migration[5.2]
       t.string :original_url
       t.string :short_url
       t.string :unique_url
+      t.string :desire_url
 
       t.references  :user, null: false,  index: true,  foreign_key: true
 

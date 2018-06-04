@@ -13,6 +13,10 @@ class UrlsController < ApplicationController
   def create
     @url = Url.new(url_params)
 
+    if params[:desire_url].present?
+      @url.desire
+    end
+
     @url.unique
 
     if @url.new_url?
@@ -38,7 +42,7 @@ class UrlsController < ApplicationController
   end
 
   def url_params
-    params.require(:url).permit(:original_url, :user_id)
+    params.require(:url).permit(:original_url, :user_id, :desire_url)
   end
 
 end
