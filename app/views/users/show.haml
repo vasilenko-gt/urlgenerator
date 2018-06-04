@@ -1,2 +1,6 @@
 #users-show
   %p= @user.name
+  - @user.urls.each do |url|
+    %p
+      = url.short_url
+      = link_to('share', user_share_path(@user.id, share_url: url.short_url))

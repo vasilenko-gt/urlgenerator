@@ -1,0 +1,4 @@
+= simple_form_for(@user) do |f|
+  = f.input :shared, input_html: {value: params[:share_url].present? ? params[:share_url] : nil,  class: 'form-control'}
+  .form-actions
+    = f.button :submit
