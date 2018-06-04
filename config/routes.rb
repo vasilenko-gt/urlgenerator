@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :welcomes
+  resources :urls
+  resources :urls, only: :create
 
-  root 'welcome#index'
+  get 'welcome',   to: 'welcome#index'
+
+  root to: 'welcome#index'
 
 end
