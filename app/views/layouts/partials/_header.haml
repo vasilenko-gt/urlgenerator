@@ -5,4 +5,8 @@
     = link_to('Enterprise', 'javascript:void(0)', class: 'p-2 text-dark')
     = link_to('Support',    'javascript:void(0)', class: 'p-2 text-dark')
     = link_to('Pricing',    'javascript:void(0)', class: 'p-2 text-dark')
-  = link_to('Sign up', 'javascript:void(0)', class: 'btn btn-outline-primary')
+  - if user_signed_in?
+    = link_to('Sign out', destroy_user_session_path,  class: 'btn btn-outline-warning')
+  - else
+    = link_to('Sign in',  user_session_path,          class: 'btn btn-outline-success')
+    = link_to('Sign up',  new_user_registration_path, class: 'btn btn-outline-primary')
