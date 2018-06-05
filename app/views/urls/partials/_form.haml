@@ -3,5 +3,6 @@
   = f.input :desire_url,    as: :string, placeholder: 'Enter the Desire URL for short link',  input_html: {class: 'form-control'}
   .d-none
     = f.input :user_id, as: :string, input_html: {value: current_user.id}
+  = puts
   %br
   = f.submit 'Generate', class: 'btn btn-success'

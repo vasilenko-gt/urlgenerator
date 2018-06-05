@@ -4,8 +4,6 @@ Rails.application.routes.draw do
 
   resources :users do
     resources :urls
-
-    get :share
   end
 
   resources :urls

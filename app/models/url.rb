@@ -14,12 +14,24 @@ class Url < ApplicationRecord
     self.short_url = 6.times.map{chars.sample}.join until Url.find_by_short_url(self.short_url).nil?
   end
 
-  def find_duplicate
+  def find_duplicate_uniq
     Url.find_by_unique_url(self.unique_url)
   end
 
+  def find_duplicate_short
+    Url.find_by_short_url(self.short_url)
+  end
+
+  def find_duplicate_desire
+    Url.find_by_desire_url(self.desire)
+  end
+
   def new_url?
-    find_duplicate.nil?
+    find_duplicate_uniq.nil?
+  end
+
+  def desire
+    self.desire_url
   end
 
   def unique

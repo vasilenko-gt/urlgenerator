@@ -13,25 +13,17 @@ class UrlsController < ApplicationController
   def create
     @url = Url.new(url_params)
 
-    if params[:desire_url].present?
-      @url.desire
-    end
+    response = HTTParty.get("#{@url.original_url}")
 
-    @url.unique
-
-    if @url.new_url?
-
-      if @url.save
-        redirect_to short_path(@url.short_url)
+    case response.code
+      when 200
+        generate_short_url
+      when 404
+        redirect_to user_urls_path(current_user)
       else
-        flash[:error] = "Check the error below:"
-        render 'index'
-      end
-
-    else
-      flash[:notice] = "A short link for this URL is already in our database"
-      redirect_to short_path(@url.find_duplicate.short_url)
+        redirect_to user_urls_path(current_user)
     end
+
 
   end
 
@@ -43,6 +35,26 @@ class UrlsController < ApplicationController
 
   def url_params
     params.require(:url).permit(:original_url, :user_id, :desire_url)
+  end
+
+  def generate_short_url
+    if params[:desire_url].present?
+      @url.desire
+    end
+
+    @url.unique
+
+    if @url.new_url?
+      if @url.save
+        redirect_to short_path(@url.short_url)
+      else
+        flash[:error] = "error"
+        render 'index'
+      end
+    else
+      flash[:notice] = "A short link for this URL is already in our database"
+      redirect_to short_path(@url.find_duplicate_uniq.short_url)
+    end
   end
 
 end
