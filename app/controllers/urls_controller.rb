@@ -38,10 +38,6 @@ class UrlsController < ApplicationController
   end
 
   def generate_short_url
-    if params[:desire_url].present?
-      @url.desire
-    end
-
     @url.unique
 
     if @url.new_url?
