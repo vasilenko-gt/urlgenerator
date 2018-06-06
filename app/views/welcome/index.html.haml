@@ -1,7 +1,7 @@
 .text-center
-  %h2= 'Hello World'
+  %h1= 'Hello World'
   %p="The time is now: #{Time.now}"
   - if user_signed_in?
     = link_to('Go to generate', user_urls_path(current_user), class: 'btn btn-outline-primary')
   - else
-    %p= 'Enter to sytem o sign ip'
+    %h3= 'Sign in or register in the system to generate a URL'
