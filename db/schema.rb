@@ -20,6 +20,7 @@ ActiveRecord::Schema.define(version: 2018_07_04_191658) do
     t.string "short_url"
     t.string "unique_url"
     t.string "desire_url"
+    t.string "share_email"
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

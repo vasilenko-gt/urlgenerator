@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :users do
-    resources :urls
+    resources :urls do
+      get :share
+    end
   end
 
   resources :urls

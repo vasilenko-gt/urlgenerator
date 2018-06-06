@@ -55,4 +55,8 @@ class Url < ApplicationRecord
     self.unique_url = "http://#{self.unique_url}"
   end
 
+  # def send_email
+  #   ApplicationMailer.user_share_url(self).deliver_now
+  # end
+
 end

@@ -23,8 +23,17 @@ class UrlsController < ApplicationController
       else
         redirect_to user_urls_path(current_user)
     end
+  end
 
+  def update
+    @url = Url.find(params[:id])
+    ApplicationMailer.user_share_url(self).deliver_now
+    render edit_url_path(@url)
+  end
 
+  def share
+    @url = Url.find(params[:url_id])
+    @user = Url.find(params[:user_id])
   end
 
   private

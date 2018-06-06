@@ -1,11 +1,11 @@
 class ApplicationMailer < ActionMailer::Base
 
-  def user_share_url(user)
-    @user = user
+  default from: 'url-generator@gmail.com'
+
+  def user_share_url(url)
+    @url = url
     mail(
-        from:            "#{@user.email}",
-        to:              ["#{@user.share_email}"],
-        subject:         "#{@user.name} share to you short_url",
+        to:              'denis.vasilenko.as@gmail.com',
         template_path:   'mailer',
         template_name:   'user_share_url'
     )
