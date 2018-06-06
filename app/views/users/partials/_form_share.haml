@@ -1,0 +1,5 @@
+= simple_form_for(user) do |f|
+  = f.input :share_url,   as: :string, placeholder: 'Enter the URL',    input_html: {value: params[:share_url],    class: 'form-control'}
+  = f.input :share_email, as: :string, placeholder: 'Enter the email',  input_html: {class: 'form-control'}
+  %br
+  = f.submit 'Share', class: 'btn btn-success'

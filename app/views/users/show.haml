@@ -10,5 +10,5 @@
         %b
           = 'Your shortened URL is:'
           = "#{request.base_url}/#{url.short_url}"
-          = link_to('share', user_url_share_path(@user.id, url.id, share_url: url.short_url), class: 'btn btn-primary')
+          = link_to('share', user_share_path(@user.id, share_url: url.short_url), class: 'btn btn-primary')
     %br

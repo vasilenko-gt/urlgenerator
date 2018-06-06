@@ -1,5 +1,7 @@
 class UsersController < ApplicationController
 
+  include MainSettings
+
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -39,6 +41,9 @@ class UsersController < ApplicationController
         format.html { render :edit }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
+      if @user.share_email.present?
+        ApplicationMailer.share_email(self).deliver_now
+      end
     end
   end
 
@@ -60,7 +65,7 @@ class UsersController < ApplicationController
     end
 
     def user_params
-      params.require(:user).permit(:name)
+      params.require(:user).permit(:name, :share_url, :share_email)
     end
 
 end

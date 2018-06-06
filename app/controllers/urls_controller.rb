@@ -25,16 +25,6 @@ class UrlsController < ApplicationController
     end
   end
 
-  def update
-    @url = Url.find(params[:id])
-    ApplicationMailer.user_share_url(self).deliver_now
-  end
-
-  def share
-    @url = Url.find(params[:url_id])
-    @user = Url.find(params[:user_id])
-  end
-
   private
 
   def find_url
@@ -42,7 +32,7 @@ class UrlsController < ApplicationController
   end
 
   def url_params
-    params.require(:url).permit(:original_url, :user_id, :desire_url)
+    params.require(:url).permit(:original_url, :short_url, :unique_url, :share_email, :desire_url, :user_id)
   end
 
   def generate_short_url
