@@ -1,4 +1,4 @@
-= simple_form_for(url, html: {class: 'text-center'}) do |f|
+= simple_form_for(url) do |f|
   = f.input :original_url,  as: :string, placeholder: 'Enter the URL',                        input_html: {value: url.original_url, class: 'form-control'}
   = f.input :short_url,     as: :string, placeholder: 'Enter the Desire URL for short link',  input_html: {value: url.short_url,    class: 'form-control'}
   = f.input :share_email,   as: :string, placeholder: 'Enter the Email',  input_html: {class: 'form-control'}
@@ -6,4 +6,4 @@
     = f.input :user_id, as: :string, input_html: {value: current_user.id}
     = f.input :id, as: :string, input_html: {value: url.id}
   %br
-  = f.submit 'Generate', class: 'btn btn-success'
+  = f.submit 'Share', class: 'btn btn-success'

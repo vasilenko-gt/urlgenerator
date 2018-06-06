@@ -2,12 +2,12 @@
   %h3.text-center Well done, your link has been shortened!
   %h3.text-center Share it now!
   .col-md-6
-    %form.simple_form
-    .form-group.string.disabled
-      %label.string.disabled.control-label{for: 'url_original_url'} Your original URL was:
-      %input#url_original_url.string.disabled.form-control{disabled: 'disabled', value: "#{@url.original_url}"}
+    %p
+      %label Your original URL was:
+      %input.form-control{disabled: 'disabled', value: "#{@url.original_url}"}
     %br
+    %b
+      %label Your shortened URL is:
+      %input.form-control{value: "#{request.base_url}/#{@url.short_url}"}
     %br
-    %p.larger
-      = 'Your shortened URL is:'
-      %span#short-url{placement: 'bottom'}= "#{request.base_url}/#{@url.short_url}"
+    = link_to('Show all yr shortened URLs', user_path(current_user), class: 'btn btn-primary')

@@ -1,6 +1,14 @@
 #users-show
   %p= @user.name
   - @user.urls.each do |url|
-    %p
-      = url.short_url
-      = link_to('share', user_url_share_path(@user.id, url.id, share_url: url.short_url))
+    .card.card-default
+      .card-header
+        %p
+          = 'Your original URL was:'
+          = url.original_url
+      .card-body
+        %b
+          = 'Your shortened URL is:'
+          = "#{request.base_url}/#{url.short_url}"
+          = link_to('share', user_url_share_path(@user.id, url.id, share_url: url.short_url), class: 'btn btn-primary')
+    %br

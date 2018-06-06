@@ -28,7 +28,6 @@ class UrlsController < ApplicationController
   def update
     @url = Url.find(params[:id])
     ApplicationMailer.user_share_url(self).deliver_now
-    render edit_url_path(@url)
   end
 
   def share
