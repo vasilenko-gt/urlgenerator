@@ -1,6 +1,6 @@
 class User < ApplicationRecord
-  
-  devise :database_authenticatable, 
+
+  devise :database_authenticatable,
          :registerable,
          :recoverable, 
          :rememberable, 
@@ -8,5 +8,8 @@ class User < ApplicationRecord
          :validatable
   
   has_many :urls
+
+  validates :name,
+            presence: true
 
 end
