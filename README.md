@@ -1,24 +1,36 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+<h3>Urlgenerator - an open-source for generate short URL</h3>
 
-Things you may want to cover:
+Requirements
+* Ruby version: '2.5.1'
+* Rails 5.2.0
+* Git 2.17.0
+* PG
 
-* Ruby version
 
-* System dependencies
+<h4>Development</h4>
 
-* Configuration
+1. Install RubyGems dependencies
+ bundle install
+2. Create database and run migrations
+ rake db:reload
+ 
 
-* Database creation
+<h4>Applying</h4>
 
-* Database initialization
+To get the short URL you need to register.
 
-* How to run the test suite
+After sign up in next time you will be able to simply sign in.
 
-* Services (job queues, cache servers, search engines, etc.)
+After registration, you will be sent to the page of the "Welcome", where you can see the time and suggestions go to the page to generate the address
 
-* Deployment instructions
+On the URL generation page enter your address
+Also you can enter the desired address
 
-* ...
+After clicking the generation button you will be redirected to the page where your see 
+short URL
+
+You can go to the page where all your generated addresses will be before
+
+By clicking the button 'share' you will be redirected to page, where you can send a short address to another user by mail

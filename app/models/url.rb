@@ -9,16 +9,16 @@ class Url < ApplicationRecord
   validates_format_of :original_url, with: /\A(?:(?:http|https):\/\/)?([-a-zA-Z0-9.]{2,256}\.[a-z]{2,4})\b(?:\/[-a-zA-Z0-9@,!:%_\+.~#?&\/\/=]*)?\z/
 
   def generate_short_url
+    chars = ['0'..'9','A'..'Z','a'..'z'].map{|range| range.to_a}.flatten
+
     if self.desire_url.present?
       if self.new_desire?
         self.short_url = self.desire_url.downcase
       else
-        chars = ['0'..'9','A'..'Z','a'..'z'].map{|range| range.to_a}.flatten
-        self.short_url = "#{self.desire_url}#{3.times.map{chars.sample}.join}"
+        self.short_url = "#{self.desire_url}#{1.times.map{chars.sample}.join}"
         self.short_url = self.short_url until Url.find_by_short_url(self.short_url).nil?
       end
     else
-      chars = ['0'..'9','A'..'Z','a'..'z'].map{|range| range.to_a}.flatten
       self.short_url = 6.times.map{chars.sample}.join
       self.short_url = self.short_url until Url.find_by_short_url(self.short_url).nil?
     end

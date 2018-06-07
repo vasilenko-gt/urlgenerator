@@ -3,7 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
-gem 'rails' # Ruby framework.
+gem 'rails'                                             # Ruby framework.
 gem 'pg'                                                # Use postgresql as the database for Active Record.
 gem 'puma'                                              # Use Puma as the app server.
 gem 'figaro'                                            # Simple Rails app configuration
@@ -21,6 +21,7 @@ gem 'autoprefixer-rails'                                # Autoprefixer for Ruby 
 gem 'google_custom_search_api'                          # Ruby lib for Google's Custom Search API
 gem 'uglifier'                                          # Use Uglifier as compressor for JavaScript assets.
 gem 'turbolinks'                                        # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks.
+gem 'select2-rails'                                       # Integrate Select2 javascript library with Rails asset pipeline https://github.com/argerim/select2-rails
 gem 'simple_form', github: 'plataformatec/simple_form'  # Simple forms made easy.
 
 group :development, :test do

@@ -1,7 +1,5 @@
 class UsersController < ApplicationController
 
-  include MainSettings
-
   before_action :set_user, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -16,6 +14,7 @@ class UsersController < ApplicationController
   end
 
   def edit
+
   end
 
   def create
@@ -42,7 +41,7 @@ class UsersController < ApplicationController
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
       if @user.share_email.present?
-        ApplicationMailer.share_email(self).deliver_now
+        UserMailer.sample_email(@user).deliver_now
       end
     end
   end
