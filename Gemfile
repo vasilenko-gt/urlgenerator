@@ -21,7 +21,7 @@ gem 'autoprefixer-rails'                                # Autoprefixer for Ruby 
 gem 'google_custom_search_api'                          # Ruby lib for Google's Custom Search API
 gem 'uglifier'                                          # Use Uglifier as compressor for JavaScript assets.
 gem 'turbolinks'                                        # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks.
-gem 'select2-rails'                                       # Integrate Select2 javascript library with Rails asset pipeline https://github.com/argerim/select2-rails
+gem 'faker'                                             # This gem is a port of Perl's Data::Faker library that generates fake data.
 gem 'simple_form', github: 'plataformatec/simple_form'  # Simple forms made easy.
 
 group :development, :test do

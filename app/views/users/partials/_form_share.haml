@@ -1,5 +1,5 @@
 = simple_form_for(user) do |f|
   = f.input :share_url,   as: :string, placeholder: 'Enter the URL',    input_html: {value: "#{request.base_url}/#{params[:share_url]}",  class: 'form-control'}
-  = f.input :share_email, type: :select, collection: User.all.map { |p| [p.name, p.email] }, input_html: {class: 'form-control'}
+  = f.input :share_email, type: :select, collection: User.all.map { |p| [p.name, p.email] }, input_html: {class: 'form-control'}, label: 'Choose user'
   %br
   = f.submit 'Share', class: 'btn btn-success'

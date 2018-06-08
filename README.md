@@ -2,6 +2,7 @@
 
 <h3>Urlgenerator - an open-source for generate short URL</h3>
 
+
 Requirements
 * Ruby version: '2.5.1'
 * Rails 5.2.0
@@ -13,11 +14,11 @@ Requirements
 
 1. Install RubyGems dependencies
  bundle install
-2. Create database and run migrations
+2. Drop and Create database, run migrations and tasks
  rake db:reload
  
 
-<h4>Applying</h4>
+<h4>Application applying</h4>
 
 To get the short URL you need to register.
 
@@ -34,3 +35,16 @@ short URL
 You can go to the page where all your generated addresses will be before
 
 By clicking the button 'share' you will be redirected to page, where you can send a short address to another user by mail
+
+
+<h4>Application background</h4>
+
+- Has a registration system
+
+- Checks the specified address for originality(u can look in the model)
+
+- Has prescribed validates in the model
+
+- Has a task for "create 10 test users"
+
+- Has a test for send a message for the last registered user : "https://immense-mountain-33372.herokuapp.com/rails/mailers/user_mailer/sample_mail_preview"

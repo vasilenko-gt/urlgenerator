@@ -27,6 +27,8 @@ namespace :db do
     Rake::Task['db:create'].execute
     Rake::Task['db:migrate'].execute
     Rake::Task['db:seed'].execute
+
+    Rake::Task['users:create'].execute
   end
 
 end
