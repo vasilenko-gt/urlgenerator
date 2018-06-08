@@ -24,18 +24,16 @@ To get the short URL you need to register.
 
 After sign up in next time you will be able to simply sign in.
 
-After registration, you will be sent to the page of the "Welcome", where you can see the time and suggestions go to the page to generate the address
+After registration, you will redirect to the page "Welcome", where you can see the time now and suggestions go to the page "generating short URL"
 
-On the URL generation page enter your address
-Also you can enter the desired address
+On the URL generation page enter your URL
+Also you can enter the desired short_URL
 
-After clicking the generation button you will be redirected to the page where your see 
-short URL
+After clicking the button "generate", you will be redirected to the page where your see short URL
 
-You can go to the page where all your generated addresses will be before
+You can go to the page where show all your generated short_url
 
-By clicking the button 'share' you will be redirected to page, where you can send a short address to another user by mail
-
+By clicking the button "share" you will be redirected to page, where you can send a short address to another user by email
 
 <h4>Application background</h4>
 
@@ -47,4 +45,4 @@ By clicking the button 'share' you will be redirected to page, where you can sen
 
 - Has a task for "create 10 test users"
 
-- Has a test for send a message for the last registered user : "https://immense-mountain-33372.herokuapp.com/rails/mailers/user_mailer/sample_mail_preview"
+- Has a test for send a message for the last registered user: "localhost:3000/rails/mailers/user_mailer/sample_mail_preview"
